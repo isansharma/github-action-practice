@@ -18,9 +18,9 @@ jobs:
           echo "STEP_VAR: $STEP_VAR"
       - name: Inspect scope job 1 step 2
         run: |
-          echo "WORKFLO_VAR: $WORKFLOW_VAR""
-          echo "JOB_VAR: $JOB_VAR""
-          echo "STEP_VAR: $STEP_VAR""
+          echo "WORKFLO_VAR: $WORKFLOW_VAR"
+          echo "JOB_VAR: $JOB_VAR"
+          echo "STEP_VAR: $STEP_VAR"
 
   job-2:
     runs-on: ubuntu-22.04
