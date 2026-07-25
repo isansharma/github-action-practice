@@ -16,3 +16,15 @@ jobs:
         with:
           name: example-atrifact
           path: artifact.txt
+
+  artifact-consumer:
+    name: Consume Artifact
+    runs-on: ubuntu-24.04
+    needs: artifact-producer
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: example-artifact
+      - name: Cat artifact file
+        run: cat artifact.txt
