@@ -1,0 +1,27 @@
+name: Permissions
+on:
+  workflow_dispatch:
+jobs:
+  read-only-pr:
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: read
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - name: List the first 5 open prs(allow)
+        run: gh pr list --limit 5
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Attemp to add a label(expected to fail)
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          gh pr edit 1 --add-label "documentations"
+
+      - name: Confirm the failure 
+        if: failure()
+        run: echo " X write operation was blocked as expected - token is read only"
+
+      
