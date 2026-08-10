@@ -30,7 +30,7 @@ jobs:
   sleep-job:
     runs-on: ubuntu-24.04
     steps:
-      - name: Sleep (to give time to  cancel)
+      - name: Sleep (to give time to  cancel the event)
         run: sleep 100
         timeout-minutes: 2
 
