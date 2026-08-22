@@ -24,7 +24,7 @@ jobs:
 
           include_json=$(
             {
-              for (( i=1; i<=n; i++)):do
+              for (( i=1; i<=n; i++));do
                 foo_val=$((RANDOM % 100))
                 bar_val=$((RANDOM % 100))
                 jq -n -c \
